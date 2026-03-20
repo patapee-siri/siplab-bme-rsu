@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <title>SIP LAB — Signal & Image Processing Laboratory | BME RSU</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Signal and Image Processing Laboratory, College of Biomedical Engineering, Rangsit University">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="siplab-nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="img/siplab_logo.png" alt="SIPLAB Logo" onerror="this.style.display='none'">
+      <div class="brand-text">
+        <span class="brand-main">SIP LAB</span>
+        <span class="brand-sub">BME · RSU</span>
+      </div>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html" class="active">หน้าหลัก</a>
+      <a href="about.html">เกี่ยวกับ Lab</a>
+      <a href="team.html">ทีมวิจัย</a>
+      <a href="research.html">งานวิจัย</a>
+      <a href="activities.html">กิจกรรม</a>
+      <a href="contact.html">ติดต่อ</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-accent-line"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Signal & Image Processing Laboratory</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="title-line-1">SIP</span>
+        <span class="title-line-2">LAB</span>
+        <span class="title-line-3">BME RSU</span>
+      </h1>
+      <p class="hero-desc">
+        ห้องปฏิบัติการวิจัยและพัฒนาด้านการประมวลผลสัญญาณและภาพทางการแพทย์<br>
+        วิทยาลัยวิศวกรรมชีวการแพทย์ มหาวิทยาลัยรังสิต
+      </p>
+      <div class="hero-cta-row">
+        <a href="research.html" class="btn-primary">ดูงานวิจัย <i class="fas fa-arrow-right ms-2"></i></a>
+        <a href="about.html" class="btn-ghost">เกี่ยวกับ Lab</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="signal-wave">
+        <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+          <polyline class="wave-line wave-1" points="0,100 30,100 40,40 55,160 70,100 100,100 110,60 125,140 140,100 170,100 175,80 185,120 195,100 400,100"/>
+          <polyline class="wave-line wave-2" points="0,110 50,110 65,50 80,170 95,110 130,110 145,70 160,150 175,110 220,110 235,90 250,130 265,110 400,110"/>
+        </svg>
+      </div>
+      <div class="hero-stats-float">
+        <div class="stat-chip">
+          <span class="stat-num" data-target="3">0</span>
+          <span class="stat-lbl">อาจารย์</span>
+        </div>
+        <div class="stat-chip">
+          <span class="stat-num" data-target="60">0</span>
+          <span class="stat-lbl">Publications</span>
+        </div>
+        <div class="stat-chip">
+          <span class="stat-num" data-target="12">0</span>
+          <span class="stat-lbl">สมาชิก</span>
+        </div>
+      </div>
+      <div class="hero-logo-area">
+        <img src="img/siplab_logo.png" alt="SIP LAB" class="hero-siplab-logo" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT STRIP ═══ -->
+<section class="about-strip">
+  <div class="container">
+    <div class="strip-inner">
+      <img src="img/bme_logo.png" alt="BME RSU" class="strip-bme-logo" onerror="this.style.display='none'">
+      <p>ส่วนหนึ่งของ <strong>วิทยาลัยวิศวกรรมชีวการแพทย์ มหาวิทยาลัยรังสิต</strong> — มุ่งพัฒนานวัตกรรมและเทคโนโลยีชีวการแพทย์ร่วมกับโรงพยาบาลชั้นนำ</p>
+      <a href="https://bme.rsu.ac.th" target="_blank" class="strip-link">bme.rsu.ac.th <i class="fas fa-external-link-alt"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOCUS AREAS ═══ -->
+<section class="section focus-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><span class="mono">01</span> Research Focus</div>
+      <h2 class="section-title">ขอบเขตการวิจัย</h2>
+      <p class="section-sub">SIP LAB มุ่งเน้นการวิจัยและพัฒนาใน 4 กลุ่มหลัก</p>
+    </div>
+    <div class="focus-grid">
+      <div class="focus-card" data-num="01">
+        <div class="focus-icon"><i class="fas fa-brain"></i></div>
+        <h3>Brain Signal Processing</h3>
+        <p>การประมวลผลสัญญาณสมอง EEG และ fNIRS สำหรับงานวิจัย Neuroscience และ BCI</p>
+        <div class="focus-tags"><span>EEG</span><span>fNIRS</span><span>BCI</span></div>
+      </div>
+      <div class="focus-card" data-num="02">
+        <div class="focus-icon"><i class="fas fa-x-ray"></i></div>
+        <h3>Medical Image Processing</h3>
+        <p>การวิเคราะห์ภาพทางการแพทย์ด้วย Deep Learning สำหรับการวินิจฉัยโรค</p>
+        <div class="focus-tags"><span>MRI</span><span>CT</span><span>Deep Learning</span></div>
+      </div>
+      <div class="focus-card" data-num="03">
+        <div class="focus-icon"><i class="fas fa-microchip"></i></div>
+        <h3>Biosensor & Electrochemical</h3>
+        <p>การพัฒนา Biosensor และ Electrochemical Sensor สำหรับตรวจวัดสารชีวภาพ</p>
+        <div class="focus-tags"><span>Sensor</span><span>MIP</span><span>IoT</span></div>
+      </div>
+      <div class="focus-card" data-num="04">
+        <div class="focus-icon"><i class="fas fa-robot"></i></div>
+        <h3>Biomedical Robotics & Control</h3>
+        <p>การออกแบบและควบคุมหุ่นยนต์และอุปกรณ์ช่วยเหลือทางการแพทย์</p>
+        <div class="focus-tags"><span>EMG</span><span>Robotics</span><span>Rehabilitation</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STATS ═══ -->
+<section class="stats-section">
+  <div class="stats-bg-pattern"></div>
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat-block">
+        <div class="stat-number" data-target="3">0</div>
+        <div class="stat-label">อาจารย์ที่ปรึกษา</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-block">
+        <div class="stat-number" data-target="60">0</div>
+        <div class="stat-label">ผลงานวิจัย</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-block">
+        <div class="stat-number" data-target="12">0</div>
+        <div class="stat-label">สมาชิก Lab</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-block">
+        <div class="stat-number" data-target="2006">2000</div>
+        <div class="stat-label">ก่อตั้งตั้งแต่ปี</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TEAM PREVIEW ═══ -->
+<section class="section team-preview">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><span class="mono">02</span> Principal Investigators</div>
+      <h2 class="section-title">อาจารย์ที่ปรึกษา</h2>
+    </div>
+    <div class="advisor-row">
+
+      <div class="advisor-card">
+        <div class="advisor-img-wrap">
+          <img src="img/thanate_profile.png" alt="ดร.ธเนศ อังศุวัฒนากุล" onerror="this.style.background='#f5f5f5';this.style.display='block'">
+          <div class="advisor-img-placeholder"><i class="fas fa-user-tie"></i></div>
+        </div>
+        <div class="advisor-info">
+          <div class="advisor-role">หัวหน้าหลักสูตร BME</div>
+          <h3>ดร. ธเนศ อังศุวัฒนากุล</h3>
+          <p>EEG · fNIRS · Brain Complexity · Neuroscience</p>
+          <div class="advisor-links">
+            <a href="https://scholar.google.co.th/citations?hl=th&user=LSeVFAIAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i> Scholar</a>
+            <a href="http://bme.rsu.ac.th/demo/CV/cv_e/CV%20Thanate_2023_Sep_EN.pdf" target="_blank"><i class="fas fa-file-pdf"></i> CV</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="advisor-card featured">
+        <div class="advisor-img-wrap">
+          <img src="img/tasawan_profile.png" alt="ผศ.ดร.ทัศวรรณ พุทธสุวรรณ" onerror="this.style.background='#f5f5f5';this.style.display='block'">
+          <div class="advisor-img-placeholder"><i class="fas fa-user-tie"></i></div>
+        </div>
+        <div class="advisor-info">
+          <div class="advisor-role">หัวหน้า SIP LAB</div>
+          <h3>ผศ.ดร. ทัศวรรณ พุทธสุวรรณ</h3>
+          <p>Biosensor · EMG · Medical Imaging · Robotics</p>
+          <div class="advisor-links">
+            <a href="https://scholar.google.co.th/citations?hl=th&user=QNsdYwMAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i> Scholar</a>
+            <a href="https://bme.rsu.ac.th/demo/CV/cv_e/Tasawan%20Puttasakul_eng.pdf" target="_blank"><i class="fas fa-file-pdf"></i> CV</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="advisor-card">
+        <div class="advisor-img-wrap">
+          <img src="img/lattika_profile.png" alt="ดร.ลัฐิกา เตี๋ยวงษ์สุวรรณ" onerror="this.style.background='#f5f5f5';this.style.display='block'">
+          <div class="advisor-img-placeholder"><i class="fas fa-user-tie"></i></div>
+        </div>
+        <div class="advisor-info">
+          <div class="advisor-role">อาจารย์ประจำ</div>
+          <h3>ดร. ลัฐิกา เตี๋ยวงษ์สุวรรณ</h3>
+          <p>QEEG · Brain Connectivity · Autism · Parkinson's</p>
+          <div class="advisor-links">
+            <a href="https://scholar.google.co.th/citations?hl=en&user=PE62I0QAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i> Scholar</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="text-center mt-4">
+      <a href="team.html" class="btn-outline">ดูทีมทั้งหมด <i class="fas fa-arrow-right ms-2"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ RECENT PUBLICATIONS ═══ -->
+<section class="section pub-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><span class="mono">03</span> Publications</div>
+      <h2 class="section-title">งานวิจัยล่าสุด</h2>
+    </div>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-year">2025</div>
+        <div class="pub-body">
+          <span class="pub-type journal">Journal</span>
+          <h4>MIP-based electrochemical sensor with machine learning for accurate ZIKV detection</h4>
+          <p class="pub-authors">W. Sukjee, P. Sirisangsawang, T. Puttasakul, et al.</p>
+          <p class="pub-venue">Analytical Biochemistry, 702, 115854</p>
+        </div>
+        <div class="pub-cite">6 <span>citations</span></div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2025</div>
+        <div class="pub-body">
+          <span class="pub-type journal">Journal</span>
+          <h4>Autism spectrum disorder disrupts brain network connectivity maturation during childhood development</h4>
+          <p class="pub-authors">L. Tiawongsuwan, S. Klomchitcharoen, et al.</p>
+          <p class="pub-venue">Scientific Reports</p>
+        </div>
+        <div class="pub-cite">New</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2024</div>
+        <div class="pub-body">
+          <span class="pub-type journal">Journal</span>
+          <h4>Evaluating synthetic neuroimaging data augmentation for automatic brain tumour segmentation</h4>
+          <p class="pub-authors">F. Asadi, T. Angsuwatanakul, J.A. O'Reilly</p>
+          <p class="pub-venue">IBRO Neuroscience Reports, 16, 57–66</p>
+        </div>
+        <div class="pub-cite">19 <span>citations</span></div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2023</div>
+        <div class="pub-body">
+          <span class="pub-type journal">Journal</span>
+          <h4>Evaluation of single and dual image object detection using ResNet18 in robotic vision</h4>
+          <p class="pub-authors">P. Chotikunnan, T. Puttasakul, et al.</p>
+          <p class="pub-venue">Journal of Robotics and Control (JRC), 4(3), 263–277</p>
+        </div>
+        <div class="pub-cite">23 <span>citations</span></div>
+      </div>
+
+    </div>
+    <div class="text-center mt-4">
+      <a href="research.html" class="btn-outline">ดูงานวิจัยทั้งหมด <i class="fas fa-arrow-right ms-2"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ACTIVITIES PREVIEW ═══ -->
+<section class="section activities-prev-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><span class="mono">04</span> Lab Activities</div>
+      <h2 class="section-title">กิจกรรม Lab</h2>
+    </div>
+    <div class="act-grid">
+      <div class="act-card large">
+        <div class="act-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+        <div class="act-year">2024</div>
+        <h3>Workshop การประมวลผลสัญญาณ EEG</h3>
+        <p>อบรมเชิงปฏิบัติการสำหรับนักศึกษาและบุคลากรด้านการวิเคราะห์สัญญาณสมอง EEG เบื้องต้นและขั้นสูง</p>
+        <span class="act-tag">Workshop</span>
+      </div>
+      <div class="act-card">
+        <div class="act-icon"><i class="fas fa-hospital"></i></div>
+        <div class="act-year">2024</div>
+        <h3>ความร่วมมือกับโรงพยาบาล</h3>
+        <p>โครงการวิจัยร่วมกับโรงพยาบาลชั้นนำในการพัฒนาอุปกรณ์การแพทย์</p>
+        <span class="act-tag">Research</span>
+      </div>
+      <div class="act-card">
+        <div class="act-icon"><i class="fas fa-trophy"></i></div>
+        <div class="act-year">2023</div>
+        <h3>นำเสนองานใน BMEiCON 2023</h3>
+        <p>นักศึกษา SIP LAB นำเสนอผลงานวิจัยในงานประชุมวิชาการระดับนานาชาติ</p>
+        <span class="act-tag">Conference</span>
+      </div>
+      <div class="act-card">
+        <div class="act-icon"><i class="fas fa-users"></i></div>
+        <div class="act-year">2024</div>
+        <h3>รับนักศึกษาวิจัยใหม่</h3>
+        <p>เปิดรับสมัครนักศึกษาระดับปริญญาตรีและโทที่สนใจทำวิจัยใน Lab</p>
+        <span class="act-tag">Recruitment</span>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <a href="activities.html" class="btn-outline">ดูกิจกรรมทั้งหมด <i class="fas fa-arrow-right ms-2"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+  <div class="cta-pattern"></div>
+  <div class="container">
+    <div class="cta-inner">
+      <h2>สนใจร่วมวิจัยกับ SIP LAB?</h2>
+      <p>เปิดรับนักศึกษาระดับปริญญาตรี-โท และนักวิจัยที่สนใจด้านสัญญาณและภาพทางการแพทย์</p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn-primary">ติดต่อเรา</a>
+        <a href="about.html" class="btn-ghost-white">เรียนรู้เพิ่มเติม</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="siplab-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <div class="footer-logo-row">
+          <img src="img/siplab_logo.png" alt="SIPLAB" onerror="this.style.display='none'">
+          <img src="img/bme_logo.png" alt="BME RSU" onerror="this.style.display='none'">
+        </div>
+        <p class="footer-desc">Signal and Image Processing Laboratory<br>วิทยาลัยวิศวกรรมชีวการแพทย์ มหาวิทยาลัยรังสิต</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Line"><i class="fab fa-line"></i></a>
+        </div>
+      </div>
+      <div>
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="about.html">เกี่ยวกับ Lab</a></li>
+          <li><a href="team.html">ทีมวิจัย</a></li>
+          <li><a href="research.html">งานวิจัย</a></li>
+          <li><a href="activities.html">กิจกรรม</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>ติดต่อ</h5>
+        <ul>
+          <li><i class="fas fa-envelope me-2"></i>tasawan.p@rsu.ac.th</li>
+          <li><i class="fas fa-phone me-2"></i>0-2997-2200-30 ต่อ 1504</li>
+          <li><i class="fas fa-map-marker-alt me-2"></i>มหาวิทยาลัยรังสิต ปทุมธานี</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 SIP LAB · College of Biomedical Engineering · Rangsit University</p>
+      <a href="https://bme.rsu.ac.th" target="_blank">bme.rsu.ac.th</a>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>

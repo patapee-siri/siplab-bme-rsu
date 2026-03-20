@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <title>ทีมวิจัย — SIP LAB BME RSU</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .advisor-full-card {
+      background: var(--white);
+      border: 1px solid var(--gray-2);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: var(--transition);
+      display: grid;
+      grid-template-columns: 280px 1fr;
+    }
+    .advisor-full-card:hover { box-shadow: var(--shadow-lg); border-color: var(--red); }
+    .advisor-full-card.reverse { direction: rtl; }
+    .advisor-full-card.reverse > * { direction: ltr; }
+    .advisor-photo {
+      height: 100%;
+      min-height: 320px;
+      background: var(--gray-1);
+      position: relative;
+      overflow: hidden;
+    }
+    .advisor-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+    }
+    .advisor-photo-placeholder {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #f0f0f0, var(--red-pale));
+    }
+    .advisor-photo-placeholder i { font-size: 5rem; color: var(--red-mid); }
+    .advisor-detail { padding: 36px; }
+    .advisor-detail .role-badge {
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--red);
+      background: var(--red-pale);
+      border: 1px solid var(--red-mid);
+      padding: 4px 12px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .advisor-detail h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+    .advisor-detail .en-name { font-family: var(--font-en); font-size: .9rem; color: var(--gray-5); margin-bottom: 16px; }
+    .advisor-detail .bio { font-size: .9rem; color: var(--gray-7); line-height: 1.8; margin-bottom: 20px; }
+    .expertise-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+    .expertise-list span {
+      font-family: var(--font-mono); font-size: .72rem;
+      background: var(--gray-1); color: var(--dark-soft);
+      border: 1px solid var(--gray-2); padding: 4px 12px; border-radius: 4px;
+    }
+    .advisor-contact { display: flex; flex-wrap: wrap; gap: 10px; }
+    .advisor-contact a {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-mono); font-size: .75rem;
+      color: var(--dark); border: 1px solid var(--gray-2);
+      padding: 7px 14px; border-radius: 6px; text-decoration: none;
+      transition: var(--transition);
+    }
+    .advisor-contact a:hover { background: var(--red); color: var(--white); border-color: var(--red); }
+    .advisor-contact a i { color: var(--red); transition: var(--transition); }
+    .advisor-contact a:hover i { color: var(--white); }
+    .member-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .member-card {
+      background: var(--white);
+      border: 1px solid var(--gray-2);
+      border-radius: 14px;
+      padding: 20px 16px;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .member-card:hover { border-color: var(--red); transform: translateY(-3px); }
+    .member-avatar {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gray-1), var(--red-pale));
+      margin: 0 auto 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-en); font-size: 1.4rem; font-weight: 700;
+      color: var(--red);
+    }
+    .member-card h4 { font-size: .9rem; font-weight: 600; margin-bottom: 4px; }
+    .member-card .m-role { font-family: var(--font-mono); font-size: .68rem; color: var(--gray-5); letter-spacing: 1px; }
+    .member-card .m-topic { font-size: .78rem; color: var(--gray-7); margin-top: 8px; line-height: 1.5; }
+    @media(max-width:768px){
+      .advisor-full-card { grid-template-columns: 1fr; }
+      .advisor-photo { min-height: 240px; }
+      .advisor-full-card.reverse { direction: ltr; }
+      .member-grid { grid-template-columns: repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="siplab-nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="img/siplab_logo.png" alt="SIPLAB" onerror="this.style.display='none'">
+      <div class="brand-text">
+        <span class="brand-main">SIP LAB</span>
+        <span class="brand-sub">BME · RSU</span>
+      </div>
+    </a>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">หน้าหลัก</a>
+      <a href="about.html">เกี่ยวกับ Lab</a>
+      <a href="team.html" class="active">ทีมวิจัย</a>
+      <a href="research.html">งานวิจัย</a>
+      <a href="activities.html">กิจกรรม</a>
+      <a href="contact.html">ติดต่อ</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb-bar">
+  <div class="container">
+    <a href="index.html">Home</a>
+    <span class="sep">/</span>
+    <span>ทีมวิจัย</span>
+  </div>
+</div>
+
+<section class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="container page-header-content">
+    <span class="page-header-tag">Research Team</span>
+    <h1>ทีมวิจัย</h1>
+    <p>อาจารย์ที่ปรึกษาและนักศึกษาวิจัยของ SIP LAB BME RSU</p>
+  </div>
+</section>
+
+<!-- ADVISORS -->
+<section class="section" style="background:var(--white)">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-tag"><span class="mono">PI</span> Principal Investigators</div>
+      <h2 class="section-title">อาจารย์ที่ปรึกษา</h2>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:28px">
+
+      <!-- Tasawan -->
+      <div class="advisor-full-card fade-up">
+        <div class="advisor-photo">
+          <img src="img/tasawan_profile.png" alt="ผศ.ดร.ทัศวรรณ พุทธสุวรรณ">
+          <div class="advisor-photo-placeholder"><i class="fas fa-user-tie"></i></div>
+        </div>
+        <div class="advisor-detail">
+          <span class="role-badge">Head of SIP LAB</span>
+          <h2>ผศ.ดร. ทัศวรรณ พุทธสุวรรณ</h2>
+          <div class="en-name">Asst. Prof. Dr. Tasawan Puttasakul</div>
+          <p class="bio">
+            ผู้ช่วยศาสตราจารย์ประจำวิทยาลัยวิศวกรรมชีวการแพทย์ มหาวิทยาลัยรังสิต ผู้นำและก่อตั้ง SIP LAB มีความเชี่ยวชาญด้าน Biosensor, EMG Signal Processing, Medical Imaging และ Biomedical Robotics มีผลงานวิจัยตีพิมพ์ในวารสารนานาชาติมากกว่า 30 ฉบับ
+          </p>
+          <div class="expertise-list">
+            <span>Biosensor</span><span>EMG Processing</span><span>Electrochemical Sensor</span>
+            <span>MIP Technology</span><span>Robotic Arm Control</span><span>Medical Imaging</span>
+            <span>3D Printing Medical</span><span>Machine Learning</span>
+          </div>
+          <div class="advisor-contact">
+            <a href="mailto:tasawan.p@rsu.ac.th"><i class="fas fa-envelope"></i> tasawan.p@rsu.ac.th</a>
+            <a href="https://scholar.google.co.th/citations?hl=th&user=QNsdYwMAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+            <a href="https://bme.rsu.ac.th/demo/CV/cv_e/Tasawan%20Puttasakul_eng.pdf" target="_blank"><i class="fas fa-file-pdf"></i> CV (EN)</a>
+            <a href="https://bme.rsu.ac.th/demo/CV/cv_t/Tasawan%20Puttasakul_thai.pdf" target="_blank"><i class="fas fa-file-pdf"></i> CV (TH)</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thanate -->
+      <div class="advisor-full-card reverse fade-up">
+        <div class="advisor-photo">
+          <img src="img/thanate_profile.png" alt="ดร.ธเนศ อังศุวัฒนากุล">
+          <div class="advisor-photo-placeholder"><i class="fas fa-user-tie"></i></div>
+        </div>
+        <div class="advisor-detail">
+          <span class="role-badge">Program Head · BME</span>
+          <h2>ดร. ธเนศ อังศุวัฒนากุล</h2>
+          <div class="en-name">Dr. Thanate Angsuwatanakul</div>
+          <p class="bio">
+            หัวหน้าหลักสูตรวิศวกรรมศาสตรบัณฑิต สาขาวิศวกรรมชีวการแพทย์ มีความเชี่ยวชาญด้าน EEG, fNIRS และการวิเคราะห์ความซับซ้อนของสัญญาณสมอง (Multiscale Entropy) งานวิจัยครอบคลุม Neuroscience, Cognitive Science และ Brain-Computer Interface
+          </p>
+          <div class="expertise-list">
+            <span>EEG Analysis</span><span>fNIRS</span><span>Brain Complexity</span>
+            <span>Multiscale Entropy</span><span>BCI</span><span>Cognitive Neuroscience</span>
+            <span>Deep Learning</span><span>LSTM</span>
+          </div>
+          <div class="advisor-contact">
+            <a href="mailto:thanate.a@rsu.ac.th"><i class="fas fa-envelope"></i> thanate.a@rsu.ac.th</a>
+            <a href="https://scholar.google.co.th/citations?hl=th&user=LSeVFAIAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+            <a href="http://bme.rsu.ac.th/demo/CV/cv_e/CV%20Thanate_2023_Sep_EN.pdf" target="_blank"><i class="fas fa-file-pdf"></i> CV (EN)</a>
+            <a href="https://bme.rsu.ac.th/demo/CV/cv_t/CV%20Thanate_2023_Sep_TH.pdf" target="_blank"><i class="fas fa-file-pdf"></i> CV (TH)</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lattika -->
+      <div class="advisor-full-card fade-up">
+        <div class="advisor-photo">
+          <img src="img/lattika_profile.png" alt="ดร.ลัฐิกา เตี๋ยวงษ์สุวรรณ">
+          <div class="advisor-photo-placeholder"><i class="fas fa-user-tie"></i></div>
+        </div>
+        <div class="advisor-detail">
+          <span class="role-badge">Lecturer · BME</span>
+          <h2>ดร. ลัฐิกา เตี๋ยวงษ์สุวรรณ</h2>
+          <div class="en-name">Dr. Lattika Tiawongsuwan</div>
+          <p class="bio">
+            อาจารย์ประจำวิทยาลัยวิศวกรรมชีวการแพทย์ มหาวิทยาลัยรังสิต เชี่ยวชาญด้าน Quantitative EEG (QEEG), Brain Network Connectivity และการประยุกต์ใช้กับโรคทางระบบประสาท เช่น โรคพาร์กินสัน และ Autism Spectrum Disorder
+          </p>
+          <div class="expertise-list">
+            <span>QEEG</span><span>Brain Connectivity</span><span>Autism Spectrum</span>
+            <span>Parkinson's Disease</span><span>Network Maturation</span><span>Neurodevelopment</span>
+          </div>
+          <div class="advisor-contact">
+            <a href="mailto:lattika.t@rsu.ac.th"><i class="fas fa-envelope"></i> lattika.t@rsu.ac.th</a>
+            <a href="https://scholar.google.co.th/citations?hl=en&user=PE62I0QAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERS -->
+<section class="section" style="background:var(--gray-1)">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-tag"><span class="mono">Members</span> นักศึกษาวิจัย</div>
+      <h2 class="section-title">สมาชิก Lab</h2>
+      <p class="section-sub">นักศึกษาระดับปริญญาตรีและโทที่กำลังทำวิจัยใน SIP LAB (ข้อมูลสมาชิกปัจจุบัน — กรุณาอัพเดต)</p>
+    </div>
+    <div class="member-grid">
+      <div class="member-card fade-up">
+        <div class="member-avatar">A</div>
+        <h4>นักศึกษา ก.</h4>
+        <div class="m-role">BSc Research</div>
+        <div class="m-topic">EEG Signal Processing</div>
+      </div>
+      <div class="member-card fade-up">
+        <div class="member-avatar">B</div>
+        <h4>นักศึกษา ข.</h4>
+        <div class="m-role">BSc Research</div>
+        <div class="m-topic">Medical Image Segmentation</div>
+      </div>
+      <div class="member-card fade-up">
+        <div class="member-avatar">C</div>
+        <h4>นักศึกษา ค.</h4>
+        <div class="m-role">BSc Research</div>
+        <div class="m-topic">Biosensor Development</div>
+      </div>
+      <div class="member-card fade-up">
+        <div class="member-avatar">D</div>
+        <h4>นักศึกษา ง.</h4>
+        <div class="m-role">BSc Research</div>
+        <div class="m-topic">Robotic Arm Control</div>
+      </div>
+      <div class="member-card fade-up">
+        <div class="member-avatar">E</div>
+        <h4>นักศึกษา จ.</h4>
+        <div class="m-role">MSc Candidate</div>
+        <div class="m-topic">Brain-Computer Interface</div>
+      </div>
+      <div class="member-card fade-up">
+        <div class="member-avatar">F</div>
+        <h4>นักศึกษา ฉ.</h4>
+        <div class="m-role">MSc Candidate</div>
+        <div class="m-topic">Deep Learning for Medical Imaging</div>
+      </div>
+      <div class="member-card fade-up" style="border-style:dashed;background:transparent">
+        <div class="member-avatar" style="background:transparent;border:2px dashed var(--gray-2);color:var(--gray-5)">+</div>
+        <h4 style="color:var(--gray-5)">เปิดรับสมาชิก</h4>
+        <div class="m-role">Open Position</div>
+        <div class="m-topic" style="color:var(--red)"><a href="contact.html" style="color:var(--red)">ติดต่อสมัคร</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="siplab-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <div class="footer-logo-row">
+          <img src="img/siplab_logo.png" alt="SIPLAB" onerror="this.style.display='none'">
+          <img src="img/bme_logo.png" alt="BME RSU" onerror="this.style.display='none'">
+        </div>
+        <p class="footer-desc">Signal and Image Processing Laboratory<br>วิทยาลัยวิศวกรรมชีวการแพทย์ มหาวิทยาลัยรังสิต</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-line"></i></a>
+        </div>
+      </div>
+      <div>
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="about.html">เกี่ยวกับ Lab</a></li>
+          <li><a href="team.html">ทีมวิจัย</a></li>
+          <li><a href="research.html">งานวิจัย</a></li>
+          <li><a href="activities.html">กิจกรรม</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>ติดต่อ</h5>
+        <ul>
+          <li><i class="fas fa-envelope me-2"></i>tasawan.p@rsu.ac.th</li>
+          <li><i class="fas fa-phone me-2"></i>0-2997-2200-30 ต่อ 1504</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 SIP LAB · College of Biomedical Engineering · Rangsit University</p>
+      <a href="https://bme.rsu.ac.th" target="_blank">bme.rsu.ac.th</a>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+<script src="js/main.js"></script>
+</body>
+</html>

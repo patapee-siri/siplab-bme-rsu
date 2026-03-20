@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <title>กิจกรรม — SIP LAB BME RSU</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .act-timeline { position: relative; padding-left: 40px; }
+    .act-timeline::before {
+      content:''; position:absolute; left:8px; top:0; bottom:0;
+      width:2px; background:linear-gradient(180deg, var(--red), rgba(204,0,0,.1));
+    }
+    .tl-item {
+      position: relative; margin-bottom: 40px;
+      background: var(--white); border: 1px solid var(--gray-2);
+      border-radius: 16px; padding: 28px;
+      transition: var(--transition);
+    }
+    .tl-item:hover { border-color: var(--red); box-shadow: var(--shadow-md); }
+    .tl-dot {
+      position: absolute; left: -48px; top: 28px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--red); border: 3px solid var(--white);
+      box-shadow: 0 0 0 2px var(--red);
+    }
+    .tl-date {
+      font-family: var(--font-mono); font-size: .72rem;
+      color: var(--red); letter-spacing: 1.5px; margin-bottom: 8px;
+    }
+    .tl-item h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; }
+    .tl-item p { font-size: .875rem; color: var(--gray-7); line-height: 1.7; }
+    .tl-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .tl-tag {
+      font-family: var(--font-mono); font-size: .68rem;
+      background: var(--red-pale); color: var(--red);
+      border: 1px solid var(--red-mid); padding: 3px 10px; border-radius: 4px;
+    }
+    .news-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .news-card {
+      background: var(--white); border: 1px solid var(--gray-2);
+      border-radius: 14px; overflow: hidden; transition: var(--transition);
+    }
+    .news-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--red); }
+    .news-img {
+      height: 160px; background: linear-gradient(135deg, var(--dark), var(--dark-mid));
+      display: flex; align-items: center; justify-content: center; position: relative;
+    }
+    .news-img i { font-size: 2.5rem; color: rgba(204,0,0,.4); }
+    .news-img .news-year {
+      position: absolute; top: 12px; left: 12px;
+      font-family: var(--font-mono); font-size: .68rem; background: var(--red);
+      color: var(--white); padding: 3px 10px; border-radius: 4px;
+    }
+    .news-body { padding: 18px; }
+    .news-body h4 { font-size: .92rem; font-weight: 600; margin-bottom: 8px; line-height: 1.4; }
+    .news-body p { font-size: .8rem; color: var(--gray-7); line-height: 1.6; }
+    @media(max-width:768px){ .news-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav class="siplab-nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="img/siplab_logo.png" alt="SIPLAB" onerror="this.style.display='none'">
+      <div class="brand-text">
+        <span class="brand-main">SIP LAB</span>
+        <span class="brand-sub">BME · RSU</span>
+      </div>
+    </a>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">หน้าหลัก</a>
+      <a href="about.html">เกี่ยวกับ Lab</a>
+      <a href="team.html">ทีมวิจัย</a>
+      <a href="research.html">งานวิจัย</a>
+      <a href="activities.html" class="active">กิจกรรม</a>
+      <a href="contact.html">ติดต่อ</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb-bar">
+  <div class="container">
+    <a href="index.html">Home</a><span class="sep">/</span>
+    <span>กิจกรรม</span>
+  </div>
+</div>
+
+<section class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="container page-header-content">
+    <span class="page-header-tag">Lab Activities</span>
+    <h1>กิจกรรม Lab</h1>
+    <p>กิจกรรมวิจัย การอบรม และการนำเสนอผลงานของ SIP LAB</p>
+  </div>
+</section>
+
+<!-- NEWS HIGHLIGHTS -->
+<section class="section" style="background:var(--white)">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-tag"><span class="mono">Highlight</span> ข่าวสาร</div>
+      <h2 class="section-title">ข่าวสารล่าสุด</h2>
+    </div>
+    <div class="news-grid">
+      <div class="news-card fade-up">
+        <div class="news-img">
+          <i class="fas fa-brain"></i>
+          <span class="news-year">2025</span>
+        </div>
+        <div class="news-body">
+          <h4>ผลงานวิจัย Autism & Brain Connectivity ตีพิมพ์ใน Scientific Reports</h4>
+          <p>ดร.ลัฐิกา เตี๋ยวงษ์สุวรรณ และคณะ ตีพิมพ์งานวิจัยเรื่อง Brain Network Connectivity ใน ASD ใน Scientific Reports วารสารระดับโลก</p>
+        </div>
+      </div>
+      <div class="news-card fade-up">
+        <div class="news-img" style="background:linear-gradient(135deg,#1a0000,#330000)">
+          <i class="fas fa-flask"></i>
+          <span class="news-year">2025</span>
+        </div>
+        <div class="news-body">
+          <h4>Electrochemical Sensor สำหรับ Cannabis ตีพิมพ์ใน Analytical Chemistry</h4>
+          <p>ผศ.ดร.ทัศวรรณ และทีมวิจัย พัฒนา Sensor ตรวจจับ THC ในควันบุหรี่กัญชา ตีพิมพ์ใน ACS Analytical Chemistry 2026</p>
+        </div>
+      </div>
+      <div class="news-card fade-up">
+        <div class="news-img" style="background:linear-gradient(135deg,#001020,#002040)">
+          <i class="fas fa-microchip"></i>
+          <span class="news-year">2025</span>
+        </div>
+        <div class="news-body">
+          <h4>นำเสนอผลงาน BMEiCON 2025</h4>
+          <p>นักศึกษา SIP LAB นำเสนอผลงาน 2 เรื่อง ในงาน 17th Biomedical Engineering International Conference ได้แก่ VR-BCI สำหรับผู้ป่วยสมองเสื่อม และ EEG วิเคราะห์ Binaural Beat</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section" style="background:var(--gray-1)">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-tag"><span class="mono">Timeline</span> กิจกรรม</div>
+      <h2 class="section-title">ประวัติกิจกรรม</h2>
+    </div>
+    <div class="act-timeline">
+      <div class="tl-item fade-up">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2025 · BMEiCON</div>
+        <h3>การนำเสนองานวิจัยในงานประชุมวิชาการระดับนานาชาติ BMEiCON 2025</h3>
+        <p>นักศึกษาและอาจารย์ SIP LAB นำเสนอผลงานวิจัย 2 เรื่องในงาน 17th Biomedical Engineering International Conference ครอบคลุมหัวข้อ VR-BCI สำหรับผู้ป่วยสมองเสื่อม และการวิเคราะห์ EEG เพื่อลดความเครียดด้วย Binaural Beat</p>
+        <div class="tl-tags"><span class="tl-tag">Conference</span><span class="tl-tag">EEG</span><span class="tl-tag">BCI</span></div>
+      </div>
+      <div class="tl-item fade-up">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2024 · Workshop</div>
+        <h3>Workshop การประมวลผลสัญญาณ EEG และ fNIRS</h3>
+        <p>จัดอบรมเชิงปฏิบัติการสำหรับนักศึกษาภายในและภายนอก BME RSU ในหัวข้อการบันทึก การประมวลผล และการวิเคราะห์สัญญาณสมองด้วย MATLAB และ Python พร้อมฝึกปฏิบัติจริงกับอุปกรณ์ EEG</p>
+        <div class="tl-tags"><span class="tl-tag">Workshop</span><span class="tl-tag">EEG</span><span class="tl-tag">fNIRS</span><span class="tl-tag">MATLAB</span></div>
+      </div>
+      <div class="tl-item fade-up">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2024 · BMEiCON</div>
+        <h3>นำเสนอผลงาน BMEiCON 2024 — EEG และการสอบ</h3>
+        <p>วิจัยเรื่อง Brain Function Analysis Using EEG: Paper-Based Versus Computer-Based Tests นำเสนอในงาน 16th BMEiCON โดยร่วมมือกับอาจารย์จากคณะภาษาและคณาจารย์จากญี่ปุ่น</p>
+        <div class="tl-tags"><span class="tl-tag">Conference</span><span class="tl-tag">EEG</span><span class="tl-tag">Education Research</span></div>
+      </div>
+      <div class="tl-item fade-up">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2024 · Collaboration</div>
+        <h3>ความร่วมมือกับโรงพยาบาลในการพัฒนาอุปกรณ์การแพทย์</h3>
+        <p>ร่วมมือกับโรงพยาบาลพันธมิตรในการพัฒนาและทดสอบอุปกรณ์ฟื้นฟูสมรรถภาพ (CPM Device) สำหรับผู้ป่วยหลังผ่าตัด รวมถึงทดสอบระบบ Robotic Arm ในสภาพแวดล้อมจริง</p>
+        <div class="tl-tags"><span class="tl-tag">Collaboration</span><span class="tl-tag">Rehabilitation</span><span class="tl-tag">Medical Device</span></div>
+      </div>
+      <div class="tl-item fade-up">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2023 · BMEiCON</div>
+        <h3>BMEiCON 2023 — Motor Imagery Classification ด้วย LSTM</h3>
+        <p>นักศึกษา SIP LAB นำเสนองานวิจัย Mind to Motion: EEG-Based Classification ด้วย LSTM ซึ่งเป็นการประยุกต์ใช้ Deep Learning กับสัญญาณ EEG สำหรับ Brain-Computer Interface</p>
+        <div class="tl-tags"><span class="tl-tag">Conference</span><span class="tl-tag">LSTM</span><span class="tl-tag">Motor Imagery</span><span class="tl-tag">BCI</span></div>
+      </div>
+      <div class="tl-item fade-up">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2023 · Training</div>
+        <h3>รับนักศึกษาใหม่เข้า SIP LAB และจัด Lab Orientation</h3>
+        <p>จัดกิจกรรมแนะนำห้องปฏิบัติการสำหรับนักศึกษาใหม่ ครอบคลุมการแนะนำอุปกรณ์ หัวข้อวิจัย ระเบียบห้อง Lab และทิศทางการทำโปรเจกต์วิจัยในแต่ละปีการศึกษา</p>
+        <div class="tl-tags"><span class="tl-tag">Lab Orientation</span><span class="tl-tag">Training</span></div>
+      </div>
+      <div class="tl-item fade-up">
+        <div class="tl-dot"></div>
+        <div class="tl-date">ทุกปี · Seminar</div>
+        <h3>Journal Club & Lab Seminar รายสัปดาห์</h3>
+        <p>SIP LAB จัดกิจกรรม Journal Club อย่างสม่ำเสมอ โดยสมาชิก Lab แต่ละคนผลัดกันนำเสนอบทความวิชาการที่น่าสนใจและเกี่ยวข้องกับงานวิจัยของ Lab เพื่อแลกเปลี่ยนความรู้และอัพเดทเทคโนโลยีใหม่</p>
+        <div class="tl-tags"><span class="tl-tag">Seminar</span><span class="tl-tag">Journal Club</span><span class="tl-tag">Weekly</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN -->
+<section class="cta-section">
+  <div class="cta-pattern"></div>
+  <div class="container">
+    <div class="cta-inner">
+      <h2>สนใจเข้าร่วม SIP LAB?</h2>
+      <p>เราเปิดรับนักศึกษาที่สนใจทำวิจัยด้านสัญญาณและภาพทางการแพทย์ทุกปี</p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn-primary">ติดต่อสอบถาม</a>
+        <a href="team.html" class="btn-ghost-white">ดูทีมวิจัย</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="siplab-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <div class="footer-logo-row">
+          <img src="img/siplab_logo.png" alt="SIPLAB" onerror="this.style.display='none'">
+          <img src="img/bme_logo.png" alt="BME RSU" onerror="this.style.display='none'">
+        </div>
+        <p class="footer-desc">Signal and Image Processing Laboratory<br>วิทยาลัยวิศวกรรมชีวการแพทย์ มหาวิทยาลัยรังสิต</p>
+        <div class="footer-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-line"></i></a></div>
+      </div>
+      <div>
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="about.html">เกี่ยวกับ Lab</a></li>
+          <li><a href="team.html">ทีมวิจัย</a></li>
+          <li><a href="research.html">งานวิจัย</a></li>
+          <li><a href="activities.html">กิจกรรม</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>ติดต่อ</h5>
+        <ul>
+          <li><i class="fas fa-envelope me-2"></i>tasawan.p@rsu.ac.th</li>
+          <li><i class="fas fa-phone me-2"></i>0-2997-2200-30 ต่อ 1504</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 SIP LAB · College of Biomedical Engineering · Rangsit University</p>
+      <a href="https://bme.rsu.ac.th" target="_blank">bme.rsu.ac.th</a>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+<script src="js/main.js"></script>
+</body>
+</html>
