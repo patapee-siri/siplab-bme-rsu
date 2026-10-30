@@ -27,13 +27,17 @@ const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 
 if (hamburger && navLinks) {
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-  });
+  const setMenu = (open) => {
+    navLinks.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', String(open));
+    hamburger.setAttribute('aria-label', open ? 'ปิดเมนู' : 'เปิดเมนู');
+  };
+  hamburger.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
   document.addEventListener('click', (e) => {
-    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-      navLinks.classList.remove('open');
-    }
+    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) setMenu(false);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') { setMenu(false); hamburger.focus(); }
   });
 }
 
@@ -79,11 +83,30 @@ document.querySelectorAll('[data-target]').forEach(el => observer.observe(el));
 // Observe all fade-up elements
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
+// ── Contact form: opens the visitor's mail client (no backend needed) ──
+const sendMail = document.getElementById('sendMail');
+if (sendMail) {
+  const val = (id) => (document.getElementById(id) || {}).value || '';
+  sendMail.addEventListener('click', () => {
+    const status = document.getElementById('formStatus');
+    const email = document.getElementById('email');
+    if (!val('message').trim() || !email.checkValidity() || !val('email')) {
+      status.textContent = 'กรุณากรอกอีเมลที่ถูกต้องและข้อความก่อนส่ง';
+      (val('email') && email.checkValidity() ? document.getElementById('message') : email).focus();
+      return;
+    }
+    const body = val('message') + '\n\n— ' + val('fname') + ' ' + val('lname') + ' (' + val('email') + ')';
+    window.location.href = 'mailto:tasawan.p@rsu.ac.th?subject=' + encodeURIComponent('[SIP LAB] ' + val('topic')) + '&body=' + encodeURIComponent(body);
+    status.textContent = 'กำลังเปิดโปรแกรมอีเมลของคุณ หากไม่เปิด โปรดส่งไปที่ tasawan.p@rsu.ac.th โดยตรง';
+  });
+}
+
 // ── Active nav link ──
 const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 document.querySelectorAll('.nav-links a').forEach(a => {
   const href = a.getAttribute('href');
   a.classList.toggle('active', href === currentPage);
+  if (href === currentPage) a.setAttribute('aria-current', 'page');
 });
 
 // ── Spinner (if present) ──

@@ -1,0 +1,129 @@
+/* ═══════════════════════════════════════
+   SIPLAB — Refinement layer (loaded after style.css)
+   Principles: one ground / one ink / one accent (brand red),
+   no ornament, flat controls, strong focus + reduced motion.
+   ═══════════════════════════════════════ */
+
+:root { --gray-5: #6b6b6b; --radius: 4px; --radius-lg: 4px; }
+.hero .hero-desc, .page-header p, .stat-label, .stat-chip .stat-lbl { --gray-5: #b5b5b5; }
+.siplab-footer, .stats-section, .hero, .page-header { --gray-5: #b5b5b5; }
+
+/* ── accessibility ── */
+.skip-link {
+  position: absolute; left: 16px; top: -64px; z-index: 2000;
+  background: var(--red); color: #fff; padding: 10px 18px;
+  font-weight: 600; text-decoration: none; transition: top .2s;
+}
+.skip-link:focus { top: 12px; }
+:focus-visible { outline: 3px solid var(--red-light); outline-offset: 3px; }
+.siplab-nav :focus-visible, .hero :focus-visible, .cta-section :focus-visible,
+.siplab-footer :focus-visible, .page-header :focus-visible { outline-color: #fff; }
+a, button { -webkit-tap-highlight-color: transparent; }
+.nav-links a, .hamburger, .back-to-top { min-height: 44px; }
+.hamburger { min-width: 44px; align-items: center; justify-content: center; }
+[id] { scroll-margin-top: 80px; }
+
+/* ── remove ornament ── */
+.hero-bg-grid, .hero-accent-line, .stats-bg-pattern, .cta-pattern,
+.page-header-bg, .hero-badge, .section-tag, .page-header-tag,
+.focus-card::before, .badge-dot, .focus-icon, .act-icon,
+.stat-divider, .hero-stats-float { display: none !important; }
+.hero { background: var(--dark); min-height: 82vh; }
+.page-header { border-bottom: 0; }
+
+/* ── typography ── */
+body { font-size: 1.0625rem; line-height: 1.65; }
+.hero-title { line-height: .88; }
+.title-line-1, .title-line-2 { letter-spacing: -.04em; font-size: clamp(4.5rem, 12vw, 9rem); }
+.title-line-3 { font-family: var(--font-en); letter-spacing: .02em; font-size: clamp(1.1rem, 2vw, 1.5rem); color: #b5b5b5; margin-top: 16px; }
+.hero-desc { color: rgba(255,255,255,.82); font-size: 1.125rem; max-width: 34em; }
+.section-title { letter-spacing: -.03em; line-height: 1.1; font-size: clamp(2rem, 4.5vw, 3.25rem); }
+.section-sub { color: var(--dark-soft); max-width: 40em; }
+.page-header h1 { letter-spacing: -.035em; line-height: 1.05; }
+.mono, .pub-year, .pub-type, .advisor-role, .advisor-links a, .focus-tags span,
+.strip-link, .brand-sub, .contact-item-body .lbl, .form-group label {
+  font-family: var(--font-th) !important; text-transform: none !important; letter-spacing: 0 !important;
+}
+.advisor-role, .brand-sub { font-size: .8rem; }
+.pub-year { font-size: 1rem; }
+.pub-type { font-size: .78rem; }
+
+/* ── layout: left-aligned headers, generous rhythm ── */
+.section { padding: clamp(72px, 10vw, 140px) 0; }
+.section-header { text-align: left; margin-bottom: clamp(32px, 5vw, 64px); }
+.hero .container { grid-template-columns: 1.15fr .85fr; }
+
+/* ── controls: flat, one corner style ── */
+.btn-primary, .btn-ghost, .btn-outline, .btn-ghost-white {
+  border-radius: 4px; min-height: 48px; padding: 12px 28px; font-size: 1rem;
+  box-shadow: none !important;
+}
+.btn-primary:hover, .btn-outline:hover { transform: none; }
+.btn-primary:active, .btn-outline:active, .btn-ghost:active { transform: scale(.98); }
+.btn-ghost { color: #fff; border-color: rgba(255,255,255,.5); }
+.btn-outline { color: var(--red-dark); border-color: var(--red-dark); }
+.btn-outline:hover { background: var(--red-dark); }
+
+/* ── surfaces by tone, not lines/shadows ── */
+.about-strip { padding: 20px 0; }
+.strip-link { background: transparent; text-decoration: underline; padding: 6px 0; }
+.focus-card, .advisor-card, .act-card, .pub-list {
+  border: 0; box-shadow: none !important; background: var(--gray-1);
+}
+.focus-section { background: var(--white); }
+.focus-card:hover, .advisor-card:hover, .act-card:hover { transform: none; background: var(--red-pale); }
+.advisor-card.featured { transform: none; box-shadow: none; background: var(--red-pale); }
+.advisor-links a, .focus-tags span { border: 0; background: var(--white); color: var(--red-dark); border-radius: 4px; }
+.pub-list { background: transparent; }
+.pub-item { border-bottom: 0; background: var(--gray-1); margin-bottom: 8px; border-radius: 4px; }
+.pub-item:hover { background: var(--red-pale); }
+.pub-type.journal, .pub-type.conference { background: var(--white); }
+.advisor-img-placeholder { background: var(--gray-2); }
+.stat-block { padding: 24px clamp(24px, 5vw, 64px); }
+.stats-row { justify-content: space-between; }
+.cta-section { background: var(--red-dark); }
+.footer-social a { border-radius: 4px; }
+
+/* ── motion: transform/opacity only, staged ── */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-content > * { opacity: 0; transform: translateY(20px); animation: rise .7s cubic-bezier(.2,.7,.2,1) forwards; }
+  .hero-content > :nth-child(2) { animation-delay: .08s; }
+  .hero-content > :nth-child(3) { animation-delay: .16s; }
+  .hero-content > :nth-child(4) { animation-delay: .24s; }
+  .section-header, .focus-card, .advisor-card, .pub-item, .act-card { animation: none; }
+}
+@keyframes rise { to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .wave-1, .wave-2 { stroke-dashoffset: 0; }
+}
+/* content must stay visible if JS fails */
+.fade-up { opacity: 1; transform: none; }
+.js .fade-up { opacity: 0; transform: translateY(20px); transition: opacity .6s, transform .6s; }
+.js .fade-up.visible { opacity: 1; transform: none; }
+
+/* ── contact form feedback ── */
+.form-status { margin-top: 14px; font-size: .95rem; text-align: center; }
+.form-group input, .form-group textarea, .form-group select { font-size: 1rem; min-height: 48px; }
+
+@media (max-width: 768px) {
+  .hero { min-height: auto; padding: 56px 0 48px; }
+  .hero .container { grid-template-columns: 1fr; }
+  .stats-row { flex-direction: column; align-items: flex-start; }
+  .nav-links { background: var(--dark); }
+}
+
+/* ── focus areas: one-column rows instead of a grid of identical cards ── */
+.focus-grid { grid-template-columns: 1fr; gap: 8px; }
+.focus-card {
+  display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,1.4fr) minmax(0,1fr);
+  gap: 16px 40px; align-items: baseline; padding: 32px clamp(20px,3vw,40px);
+}
+.focus-card h3 { font-size: clamp(1.25rem, 2.2vw, 1.75rem); letter-spacing: -.02em; margin: 0; }
+.focus-card p { margin: 0; font-size: 1rem; color: var(--dark-soft); }
+.focus-tags { justify-content: flex-end; }
+@media (max-width: 900px) {
+  .focus-card { grid-template-columns: 1fr; }
+  .focus-tags { justify-content: flex-start; }
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://patapee-siri.github.io/siplab-bme-rsu/sitemap.xml

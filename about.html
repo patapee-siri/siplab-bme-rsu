@@ -2,26 +2,42 @@
 <html lang="th">
 <head>
   <meta charset="utf-8">
-  <title>เกี่ยวกับ Lab — SIP LAB BME RSU</title>
+  <title>เกี่ยวกับ SIP LAB — Signal & Image Processing Laboratory | BME RSU</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="พันธกิจ วิสัยทัศน์ และความเป็นมาของ SIP LAB ห้องปฏิบัติการประมวลผลสัญญาณและภาพทางการแพทย์ วิทยาลัยวิศวกรรมชีวการแพทย์ มหาวิทยาลัยรังสิต">
+  <link rel="canonical" href="https://patapee-siri.github.io/siplab-bme-rsu/about.html">
+  <meta name="theme-color" content="#1a1a1a">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SIP LAB BME RSU">
+  <meta property="og:locale" content="th_TH">
+  <meta property="og:title" content="เกี่ยวกับ SIP LAB — Signal & Image Processing Laboratory | BME RSU">
+  <meta property="og:description" content="พันธกิจ วิสัยทัศน์ และความเป็นมาของ SIP LAB ห้องปฏิบัติการประมวลผลสัญญาณและภาพทางการแพทย์ วิทยาลัยวิศวกรรมชีวการแพทย์ มหาวิทยาลัยรังสิต">
+  <meta property="og:url" content="https://patapee-siri.github.io/siplab-bme-rsu/about.html">
+  <meta property="og:image" content="https://patapee-siri.github.io/siplab-bme-rsu/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/siplab_logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/taste.css">
+  <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
+<a href="#main" class="skip-link">ข้ามไปยังเนื้อหาหลัก</a>
 
-<nav class="siplab-nav" id="mainNav">
+<nav class="siplab-nav" aria-label="เมนูหลัก" id="mainNav">
   <div class="nav-inner">
     <a href="index.html" class="nav-brand">
-      <img src="img/siplab_logo.png" alt="SIPLAB" onerror="this.style.display='none'">
+      <img src="img/siplab_logo.png" alt="SIPLAB" onerror="this.style.display='none'" decoding="async">
       <div class="brand-text">
         <span class="brand-main">SIP LAB</span>
         <span class="brand-sub">BME · RSU</span>
       </div>
     </a>
-    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    <button class="hamburger" id="hamburger" aria-label="เปิดเมนู" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
     <div class="nav-links" id="navLinks">
       <a href="index.html">หน้าหลัก</a>
       <a href="about.html" class="active">เกี่ยวกับ Lab</a>
@@ -41,6 +57,7 @@
   </div>
 </div>
 
+<main id="main">
 <section class="page-header">
   <div class="page-header-bg"></div>
   <div class="container page-header-content">
@@ -161,7 +178,7 @@
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
       <div style="border:1px solid var(--gray-2);border-radius:16px;padding:28px;text-align:center;transition:var(--transition)" class="fade-up" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--gray-2)'">
-        <img src="img/bme_logo.png" alt="BME RSU" style="height:60px;object-fit:contain;margin-bottom:16px" onerror="this.style.display='none'">
+        <img src="img/bme_logo.png" alt="BME RSU" style="height:60px;object-fit:contain;margin-bottom:16px" onerror="this.style.display='none'" decoding="async">
         <h4 style="font-size:.95rem;font-weight:600;margin-bottom:8px">BME RSU</h4>
         <p style="font-size:.82rem;color:var(--gray-7)">วิทยาลัยวิศวกรรมชีวการแพทย์ มหาวิทยาลัยรังสิต</p>
       </div>
@@ -183,17 +200,18 @@
   </div>
 </section>
 
+</main>
 <footer class="siplab-footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand-col">
         <div class="footer-logo-row">
-          <img src="img/siplab_logo.png" alt="SIPLAB" onerror="this.style.display='none'">
-          <img src="img/bme_logo.png" alt="BME RSU" onerror="this.style.display='none'">
+          <img src="img/siplab_logo.png" alt="SIPLAB" onerror="this.style.display='none'" decoding="async">
+          <img src="img/bme_logo.png" alt="BME RSU" onerror="this.style.display='none'" decoding="async">
         </div>
         <p class="footer-desc">Signal and Image Processing Laboratory<br>วิทยาลัยวิศวกรรมชีวการแพทย์ มหาวิทยาลัยรังสิต</p>
         <div class="footer-social">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fas fa-globe"></i></a>
           <a href="#"><i class="fab fa-line"></i></a>
         </div>
       </div>
@@ -217,12 +235,12 @@
     </div>
     <div class="footer-bottom">
       <p>© 2025 SIP LAB · College of Biomedical Engineering · Rangsit University</p>
-      <a href="https://bme.rsu.ac.th" target="_blank">bme.rsu.ac.th</a>
+      <a href="https://bme.rsu.ac.th" target="_blank" rel="noopener noreferrer">bme.rsu.ac.th</a>
     </div>
   </div>
 </footer>
 
-<button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+<button class="back-to-top" id="backToTop" aria-label="กลับขึ้นด้านบน"><i class="fas fa-arrow-up"></i></button>
 <script src="js/main.js"></script>
 </body>
 </html>
